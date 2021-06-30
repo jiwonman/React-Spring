@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Todo</title>
+  <link rel="stylesheet" href="C:\Users\이지원\Desktop\이지원\Git\React+Spring\WebProject\src\main\front\src\style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src='C:\Users\이지원\Desktop\이지원\Git\React+Spring\WebProject\src\main\front\scripts\script.js'></script>
+</head>
+<body>
+  <div id="todo">
+    <h1 class='todo-title'>Life Todo (남은 할일 x개)</h1>
+    <div class="content">
+      <div class="add-todo">
+        <input type="text" id="todo_input" onkeydown="if(event.keyCode == 13) add_card()">
+        <button onclick="add_card()">추가</button>
+      </div>
+      
+      <div id="task">
+        <div id="rest">
+          <div class="rest-title">해야할일</div>
+          <div class="card" style="background: none;height: 0;">
+          </div>
+
+        </div>
+        <hr width="100%">
+        <div id="complete">
+          <div class="complete-title">완료한일</div>
+          <div class="card" style="background: none; height: 0px;">
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+</body>
+</html>

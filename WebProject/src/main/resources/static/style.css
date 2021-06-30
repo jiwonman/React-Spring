@@ -1,0 +1,183 @@
+@font-face {
+  font-family: 'BMJUA';
+  src: url('../../../../../../../창업동아리/강의 관련/강의 정리/html/life_todo/BMJUA_ttf.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'BMJUA', cursive;
+  box-sizing: border-box;
+}
+
+#todo {
+  width: 800px;
+  margin: 0px auto;
+  display: block;
+}
+
+.todo-title {
+  text-align: center;
+  font-size: 2em;
+  background-color: rgb(50, 100, 255);
+  color: white;
+  padding: 0.5em;
+  margin: 0.3em;
+  border-radius: 10px;
+}
+
+.content {
+  background-color: skyblue;
+  padding: 2em;
+  margin: 0.3em;
+  border-radius: 10px;
+}
+
+.add-todo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.add-todo > input {
+  display: block;
+  width: 80%;
+  height: 2.2em;
+  font-size: 1em;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 10px;
+  margin: 0 0 0 2rem;
+  padding-left: 10px;
+
+}
+
+.add-todo > input:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px blue;
+  
+}
+
+.add-todo > button {
+  width: 12%;
+  font-size: 1em;
+  margin: 0 2em 0 0.5em;
+  border-radius: 5px;
+}
+
+#task {
+  background-color: rgb(225, 240, 243);
+  border-radius: 10px;
+  margin: 1em 0;
+  width: 100%;
+}
+
+#rest, #complete {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+}
+
+.card {
+  background-color: rgb(230, 255, 255);
+  border-radius: 5px;
+  width: 35%;
+  margin: 5%;
+  opacity: 0;
+  animation: anime .3s linear forwards;
+
+}
+
+#rest > .card:last-child:nth-child(2n), #complete > .card:last-child:nth-child(2n) {
+  display: none; /* title도 있어서 2n */
+}
+
+.status-bar {
+  text-align: center;
+  vertical-align: middle;
+  margin: 1em;
+}
+
+.item {
+  text-align: center;
+  vertical-align: middle;
+  margin: 1em;
+}
+
+.rest-title, .complete-title {
+  width: 80%;
+  height: 50px;
+  margin: 10px 20px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+  line-height: 50px;
+  background-color: rgb(70, 145, 175);
+  border-radius: 10px;
+}
+
+
+/* 처음 시작시 애니메이션 */
+@keyframes anime {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 삭제시 애니메이션 */
+
+
+.card.remove {
+  animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+  transform-origin: 0% 100%;
+}
+
+@keyframes removed-item-animation {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(600px) rotateZ(90deg);
+  }
+}
+
+/* 복구 애니메이션 */
+.card {
+  animation: openspace 0.3s ease forwards, restored-item-animation 0.3s 0.3s cubic-bezier(0, 0.8, 0.32, 1.07) forwards;
+}
+
+@keyframes openspace {
+  to {
+    height: auto;
+  }
+  
+}
+
+@keyframes restored-item-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(600px) rotateZ(90deg);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(600px) rotateZ(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateZ(0);
+  }
+}
